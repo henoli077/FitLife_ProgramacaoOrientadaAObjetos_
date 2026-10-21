@@ -2,10 +2,10 @@ from datetime import date
 from src.Plano.Plano import Plano
 
 class Aluno:
-  def __init__(self, nome: str, idade: int, cpf: str):
+  def __init__(self, nome: str, idade: int, email: str):
     self.__nome = nome
     self.__idade = idade
-    self.__cpf = cpf
+    self.__email = email
     self.__plano = None
     self.__ativo = True
     self.__dataCadastro = date.today()
@@ -28,8 +28,8 @@ class Aluno:
 
     self.__idade = novaIdade
 
-  def cpf(self):
-    return self.__cpf
+  def email(self):
+    return self.__email
 
   def plano(self):
     return self.__plano
@@ -56,7 +56,7 @@ class Aluno:
      return (
         f"Nome: {self.nome()}\n"
         f"Idade: {self.idade()}\n"
-        f"CPF: {self.cpf()}\n"
+        f"email: {self.email()}\n"
         f"Plano: {planoNome}\n"
         f"Status: {status}\n"
         f"Cadastro: {self.__dataCadastro.strftime('%d/%m/%Y')}"

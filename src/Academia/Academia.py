@@ -13,9 +13,9 @@ class Academia:
   def cadastrarPlano(self, plano: Plano):
     self.__planos.append(plano)
 
-  def buscarAlunoCPF(self, cpf: str):
+  def buscarAlunoemail(self, email: str):
     for aluno in self.__alunos:
-      if aluno.cpf() == cpf:
+      if aluno.email() == email:
         return aluno
 
     return None
@@ -28,8 +28,8 @@ class Academia:
     return None
 
   def cadastrarAluno(self, aluno: Aluno):
-    if self.buscarAlunoCPF(aluno.cpf()):
-      raise ValueError("Já existe um aluno cadastrado com este CPF.")
+    if self.buscarAlunoemail(aluno.email()):
+      raise ValueError("Já existe um aluno cadastrado com este email.")
 
     self.__alunos.append(aluno)
 

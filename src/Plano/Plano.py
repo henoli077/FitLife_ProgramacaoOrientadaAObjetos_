@@ -1,7 +1,8 @@
 class Plano:
-  def __init__(self, nome: str, valor: float):
+  def __init__(self, nome: str, valor: float, desc: str):
     self.__nome = nome
     self.__valor = valor
+    self.__desc = desc
 
   def nome(self):
     return self.__nome
@@ -21,8 +22,12 @@ class Plano:
 
     self.__valor = novo_valor
 
+  def desc(self):
+    return self.__desc
+
   def exibirPlano(self):
     return (
         f"Plano: {self.nome()}\n"
         f"Valor: R$ {self.valor():.2f}\n"
+        f"Descrição: {self.desc()}\n"
     )

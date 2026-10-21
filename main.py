@@ -17,9 +17,9 @@ def menu():
 def cadastrarAluno(academia):
   nome = input("Insira o nome: ")
   idade = int(input("Insira a idade: "))
-  cpf = input("Insira o CPF: ")
+  email = input("Insira o email: ")
 
-  aluno = Aluno(nome, idade, cpf)
+  aluno = Aluno(nome, idade, email)
   academia.cadastrarAluno(aluno)
 
   print(f"\nAluno {aluno.nome()} cadastrado com sucesso!")
@@ -27,15 +27,16 @@ def cadastrarAluno(academia):
 def cadastrarPlano(academia):
   nome = input("Insira o nome do plano: ")
   valor = float(input("Insira o valor mensal: R$ "))
+  desc = input("Insira a descrição do plano: ")
 
-  plano = Plano(nome, valor)
+  plano = Plano(nome, valor, desc)
   academia.cadastrarPlano(plano)
 
   print(f"\nPlano {plano.nome()} cadastrado com sucesso!")
 
 def matricularAluno(academia):
-  cpf = input("Insira o CPF do aluno: ")
-  aluno = academia.buscarAlunoCPF(cpf)
+  email = input("Insira o email do aluno: ")
+  aluno = academia.buscarAlunoemail(email)
 
   if aluno is None:
     print("Aluno não encontrado.")
@@ -52,8 +53,8 @@ def matricularAluno(academia):
   print(f"\nAluno {aluno.nome()} matriculado no plano {plano.nome()}.")
 
 def desmatricularAluno(academia):
-  cpf = input("Insira o CPF do aluno: ")
-  aluno = academia.buscarAlunoCPF(cpf)
+  email = input("Insira o email do aluno: ")
+  aluno = academia.buscarAlunoemail(email)
 
   if aluno is None:
     print("Aluno não encontrado.")
@@ -89,8 +90,8 @@ def listarPlanos(academia):
 
 def desativarAluno(academia):
 
-  cpf = input("Insira o CPF do aluno: ")
-  aluno = academia.buscarAlunoCPF(cpf)
+  email = input("Insira o email do aluno: ")
+  aluno = academia.buscarAlunoemail(email)
 
   if aluno is None:
     print("Aluno não encontrado.")
@@ -101,8 +102,8 @@ def desativarAluno(academia):
 
 def ativarAluno(academia):
 
-  cpf = input("Insira o CPF do aluno: ")
-  aluno = academia.buscarAlunoCPF(cpf)
+  email = input("Insira o email do aluno: ")
+  aluno = academia.buscarAlunoemail(email)
 
   if aluno is None:
     print("Aluno não encontrado.")
